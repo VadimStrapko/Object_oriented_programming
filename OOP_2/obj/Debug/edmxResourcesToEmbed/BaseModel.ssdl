@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PhoneLabKurzModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="PhoneLabKurzModelStoreContainer">
+    <EntitySet Name="ImgProds" EntityType="PhoneLabKurzModel.Store.ImgProds" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="PhoneLabKurzModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TeleProducts" EntityType="PhoneLabKurzModel.Store.TeleProducts" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_ImgProd_TeleProducts" Association="PhoneLabKurzModel.Store.FK_ImgProd_TeleProducts">
+      <End Role="TeleProducts" EntitySet="TeleProducts" />
+      <End Role="ImgProd" EntitySet="ImgProds" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ImgProds">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="image" Type="varbinary(max)" Nullable="true" />
+    <Property Name="idProd" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" Nullable="true" />
+    <Property Name="definition" Type="varbinary(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="TeleProducts">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" Nullable="true" MaxLength="10" />
+    <Property Name="fullName" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="price" Type="int" Nullable="true" />
+    <Property Name="description" Type="nvarchar" Nullable="true" MaxLength="1000" />
+    <Property Name="color" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="counterProduction" Type="nvarchar" Nullable="true" MaxLength="20" />
+  </EntityType>
+  <Association Name="FK_ImgProd_TeleProducts">
+    <End Role="TeleProducts" Type="PhoneLabKurzModel.Store.TeleProducts" Multiplicity="0..1" />
+    <End Role="ImgProd" Type="PhoneLabKurzModel.Store.ImgProds" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TeleProducts">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ImgProd">
+        <PropertyRef Name="idProd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище PhoneLabKurzModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ImgProd">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="image" Type="varbinary(max)" />
+    <Property Name="idProd" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TeleProducts">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="10" />
+    <Property Name="fullName" Type="nvarchar" MaxLength="30" />
+    <Property Name="price" Type="int" />
+    <Property Name="description" Type="nvarchar" MaxLength="1000" />
+    <Property Name="color" Type="nvarchar" MaxLength="20" />
+    <Property Name="counterProduction" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <Association Name="FK_ImgProd_TeleProducts">
+    <End Role="TeleProducts" Type="Self.TeleProducts" Multiplicity="0..1" />
+    <End Role="ImgProd" Type="Self.ImgProd" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TeleProducts">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ImgProd">
+        <PropertyRef Name="idProd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище PhoneLabKurzModelContainer">
+    <EntitySet Name="ImgProd" EntityType="Self.ImgProd" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TeleProducts" EntityType="Self.TeleProducts" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ImgProd_TeleProducts" Association="Self.FK_ImgProd_TeleProducts">
+      <End Role="TeleProducts" EntitySet="TeleProducts" />
+      <End Role="ImgProd" EntitySet="ImgProd" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
