@@ -1,0 +1,10 @@
+D:\учеба\лабы\KP(oop)\WinForms_exam\WinForms_exam\bin\Debug\WinForms_exam.exe.config
+D:\учеба\лабы\KP(oop)\WinForms_exam\WinForms_exam\bin\Debug\WinForms_exam.exe
+D:\учеба\лабы\KP(oop)\WinForms_exam\WinForms_exam\bin\Debug\WinForms_exam.pdb
+D:\учеба\лабы\KP(oop)\WinForms_exam\WinForms_exam\obj\Debug\WinForms_exam.csproj.AssemblyReference.cache
+D:\учеба\лабы\KP(oop)\WinForms_exam\WinForms_exam\obj\Debug\WinForms_exam.Form1.resources
+D:\учеба\лабы\KP(oop)\WinForms_exam\WinForms_exam\obj\Debug\WinForms_exam.Properties.Resources.resources
+D:\учеба\лабы\KP(oop)\WinForms_exam\WinForms_exam\obj\Debug\WinForms_exam.csproj.GenerateResource.cache
+D:\учеба\лабы\KP(oop)\WinForms_exam\WinForms_exam\obj\Debug\WinForms_exam.csproj.CoreCompileInputs.cache
+D:\учеба\лабы\KP(oop)\WinForms_exam\WinForms_exam\obj\Debug\WinForms_exam.exe
+D:\учеба\лабы\KP(oop)\WinForms_exam\WinForms_exam\obj\Debug\WinForms_exam.pdb
